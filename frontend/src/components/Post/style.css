@@ -27,6 +27,7 @@
 .btns {
   display: flex;
   align-self: flex-end;
+  margin-top: 1rem;
 }
 
 .btn-delete {
