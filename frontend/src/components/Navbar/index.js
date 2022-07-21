@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { FiPlus } from "react-icons/fi";
 import Modal from "../Modal";
 import PostForm from "../PostForm";
 import "./style.css";
 
-const Navbar = () => {
+const Navbar = ({ refresh }) => {
   const [openModal, setOpenModal] = useState(false);
 
   const handleOpenModal = () => {
@@ -13,6 +14,16 @@ const Navbar = () => {
 
   const handleCloseModal = () => {
     setOpenModal(false);
+  };
+
+  const addNew = (data) => {
+    axios
+      .post(`http://localhost:3000/api/posts`, data)
+      .then((res) => {
+        handleCloseModal();
+        refresh();
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -29,7 +40,10 @@ const Navbar = () => {
         show={openModal}
         handleClose={handleCloseModal}
       >
-        <PostForm />
+        <PostForm
+          handleClose={handleCloseModal}
+          onSubmit={addNew}
+        />
       </Modal>
     </>
   );

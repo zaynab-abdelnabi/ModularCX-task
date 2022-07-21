@@ -24,12 +24,6 @@
   margin-top: 1rem;
 }
 
-.btns {
-  display: flex;
-  align-self: flex-end;
-  margin-top: 1rem;
-}
-
 .btn-delete {
   margin-left: 0.5rem;
 }

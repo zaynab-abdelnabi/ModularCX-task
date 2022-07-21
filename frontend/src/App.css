@@ -10,6 +10,12 @@
   --delete-color: rgb(212, 16, 16);
 }
 
+.btns {
+  display: flex;
+  align-self: flex-end;
+  margin-top: 1rem;
+}
+
 .btn {
   border-radius: 5px;
   padding: 0.5rem 0.75rem;
@@ -34,6 +40,12 @@
   color: var(--primary-color);
 }
 
+.btn-submit {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+}
+
 .btn-edit {
   background-color: var(--edit-color);
   color: var(--secondary-color);
@@ -46,6 +58,8 @@
   border: none;
 }
 
+.btn-submit:hover,
+.btn-submit:focus,
 .btn-edit:hover,
 .btn-edit:focus,
 .btn-delete:hover,

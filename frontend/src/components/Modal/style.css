@@ -32,17 +32,3 @@
 .modal-header {
   display: flex;
 }
-
-.modal-main svg {
-  font-size: 30px;
-  border-radius: 7px;
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  transition: all 0.3s ease;
-}
-
-.modal-main svg:hover {
-  background-color: var(--primary-color);
-  fill: var(--secondary-color);
-}

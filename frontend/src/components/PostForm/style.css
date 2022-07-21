@@ -1,0 +1,30 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.label span {
+  padding: 0.3rem 0;
+}
+
+.form-input {
+  width: 100%;
+  border: 1px solid #55555550;
+  border-radius: 4px;
+  min-height: 1rem;
+  box-sizing: border-box;
+  padding: 0.5rem;
+}
+
+.form-input:focus-visible {
+  border: 1px solid #555555;
+  outline: none;
+}
