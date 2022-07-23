@@ -43,7 +43,7 @@ app.use("/api/posts", postsRouter);
 app.use((err, req, res, next) => {
   res.status(err.status || 500).send({
     success: false,
-    message: err,
+    message: err.message,
   });
 });
 
