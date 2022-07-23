@@ -1,6 +1,6 @@
 import "./style.css";
 
-const Modal = ({ title, handleClose, reset, show, children }) => {
+const Modal = ({ title, show, children }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (

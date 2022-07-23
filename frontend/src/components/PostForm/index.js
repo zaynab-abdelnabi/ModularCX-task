@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
+import "animate.css";
 import "./style.css";
 
 const PostForm = ({
@@ -64,11 +66,22 @@ const PostForm = ({
           Save
         </button>
         <button
-          className="btn btn-delete"
+          className="btn btn-cancel"
           type="button"
           onClick={() => {
             setFormData(defaultData);
-            handleClose();
+            Swal.fire({
+              title: "Your changes will not be saved",
+              color: "#000",
+              showCancelButton: true,
+              confirmButtonColor: "rgb(212, 16, 16)",
+              cancelButtonColor: "#555",
+              confirmButtonText: "ignore",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                handleClose();
+              }
+            });
           }}
         >
           Cancel

@@ -7,6 +7,7 @@
   --primary-color: rgb(128, 0, 128);
   --secondary-color: #fefefe;
   --edit-color: rgb(46, 46, 175);
+  --cancel-color: #555;
   --delete-color: rgb(212, 16, 16);
 }
 
@@ -22,6 +23,7 @@
   display: flex;
   align-items: center;
   transition: all 0.3s ease-in-out;
+  border: none;
 }
 
 .btn svg {
@@ -43,19 +45,21 @@
 .btn-submit {
   background-color: var(--primary-color);
   color: var(--secondary-color);
-  border: none;
 }
 
 .btn-edit {
   background-color: var(--edit-color);
   color: var(--secondary-color);
-  border: none;
+}
+
+.btn-cancel {
+  background-color: var(--cancel-color);
+  color: var(--secondary-color);
 }
 
 .btn-delete {
   background-color: var(--delete-color);
   color: var(--secondary-color);
-  border: none;
 }
 
 .btn-submit:hover,

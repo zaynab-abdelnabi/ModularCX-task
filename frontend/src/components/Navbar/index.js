@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { FiPlus } from "react-icons/fi";
 import Modal from "../Modal";
 import PostForm from "../PostForm";
@@ -21,6 +22,11 @@ const Navbar = ({ refresh }) => {
       .post(`http://localhost:3000/api/posts`, data)
       .then((res) => {
         handleCloseModal();
+        Swal.fire({
+          title: "Added Successfully",
+          confirmButtonColor: 'rgb(128, 0, 128)', 
+          timer: 1000,
+        });
         refresh();
       })
       .catch((err) => console.log(err));

@@ -3,6 +3,8 @@ import axios from "axios";
 import { Modal, PostForm } from "../index";
 import { FiEdit } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
+import Swal from "sweetalert2";
+import "animate.css";
 import "./style.css";
 
 const Post = ({ data, refresh }) => {
@@ -21,18 +23,40 @@ const Post = ({ data, refresh }) => {
       .put(`http://localhost:3000/api/posts/${data._id}`, editedData)
       .then((res) => {
         handleCloseModal();
+        Swal.fire({
+          title: "Edited Successfully",
+          confirmButtonColor: "rgb(128, 0, 128)",
+          timer: 1000,
+        });
         refresh();
       })
       .catch((err) => console.log(err));
   };
 
   const deletePost = (id) => {
-    axios
-      .delete(`http://localhost:3000/api/posts/${id}`)
-      .then((res) => {
-        refresh();
-      })
-      .catch((err) => console.log(err));
+    Swal.fire({
+      title: "Are you sure?",
+      color: "#000",
+      showCancelButton: true,
+      confirmButtonColor: "rgb(212, 16, 16)",
+      cancelButtonColor: "#555",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:3000/api/posts/${id}`)
+          .then((res) => {
+            console.log(res);
+            refresh();
+            Swal.fire({
+              title: "Deleted!",
+              confirmButtonColor: "rgb(128, 0, 128)",
+              timer: 1000,
+            });
+          })
+          .catch((err) => console.log(err));
+      }
+    });
   };
 
   return (
